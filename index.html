@@ -14,28 +14,30 @@
     <div>
         <button id="toggle-form">text</button>
     </div>
-    <div class="row col-12">
-        <label class="col-6">Author:</label>
-        <input class="col-6" type="text" id="book-author">
-        <label class="col-6">Title:</label>
-        <input class="col-6" type="text" id="book-title">
-        <label class="col-6">Number of pages:</label>
-        <input class="col-6" type="number" id="book-pages">
-        <label class="col-6" for="been-read">Has been read?:</label>
-        <select class="col-6" name="been-read" id="book-been-read">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-		</select>
-        <label class="col-6" for="cars">Genre:</label>
-        <select class="col-6" name="genre" id="book-genre">
-            <option value="Horror">Horror</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Historical">Historical</option>
-		</select>
-				<input class="col-6" type="submit" value="submit" id="button_form">
-			</div>
-		<div class="col-12">
+    <div id="div-form">
+        <form>
+            <label class="col-6">Author:</label>
+            <input class="col-6" type="text" id="book-author">
+            <label class="col-6">Title:</label>
+            <input class="col-6" type="text" id="book-title">
+            <label class="col-6">Number of pages:</label>
+            <input class="col-6" type="number" id="book-pages">
+            <label class="col-6" for="been-read">Has been read?:</label>
+            <select class="col-6" name="been-read" id="book-been-read">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label class="col-6" for="cars">Genre:</label>
+            <select class="col-6" name="genre" id="book-genre">
+                <option value="Horror">Horror</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Historical">Historical</option>
+            </select>
+            <input class="col-6" type="submit" value="submit" id="button_form">
+        </form>
+    </div>
+	<div id="div-books">
             <table>
                 <thead>
                     <tr>

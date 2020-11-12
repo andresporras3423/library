@@ -7,10 +7,11 @@ const beenRead = document.getElementById('book-been-read');
 const pages = document.getElementById('book-pages');
 const genre = document.getElementById('book-genre');
 const toggleForm = document.getElementById('toggle-form');
-
-function initialize() {
-  toggleForm.innerText = 'show form';
-}
+const divForm = document.getElementById('div-form');
+const divBooks = document.getElementById('div-books');
+const classes = ['invisible col-12', 'visible col-12'];
+const toggleMessage = ['show form', 'show table'];
+let toggleVal = 1;
 
 function Book(title, author, pages, beenRead, genre) {
   this.title = title;
@@ -42,10 +43,32 @@ function clearForm() {
   genre.value = 'Horror';
 }
 
-submitButton.onclick = function addBookToLibrary() {
+function toggleVisibility() {
+  toggleForm.innerText = 'show form';
+  toggleVal = (toggleVal + 1) % 2;
+  toggleForm.innerText = toggleMessage[toggleVal % 2];
+  divForm.classList.value = classes[toggleVal % 2];
+  divBooks.classList.value = classes[(toggleVal + 1) % 2];
+}
+
+toggleForm.onclick = function toggleEvent() {
+  toggleVisibility();
+};
+
+function addBookToLibrary() {
   myLibrary.push(new Book(title.value, author.value, pages.value, beenRead.value, genre.value));
   showBooks();
   clearForm();
+}
+
+submitButton.onclick = function formEvent(event) {
+  addBookToLibrary();
+  event.preventDefault();
 };
+
+function initialize() {
+  toggleVisibility();
+  addBookToLibrary();
+}
 
 initialize();
