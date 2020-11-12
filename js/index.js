@@ -1,22 +1,33 @@
 const myLibrary = [];
 const submitButton = document.getElementById('button_form');
 const listBooks = document.getElementById('list-books');
-const name = document.getElementById('book-name');
+const title = document.getElementById('book-title');
 const author = document.getElementById('book-author');
+const beenRead = document.getElementById('book-been-read');
+const pages = document.getElementById('book-pages');
 const genre = document.getElementById('book-genre');
+const toggleForm = document.getElementById('toggle-form');
 
-function Book(name, author, genre) {
-  this.name = name;
+function initialize() {
+  toggleForm.innerText = 'show form';
+}
+
+function Book(title, author, pages, beenRead, genre) {
+  this.title = title;
   this.author = author;
   this.genre = genre;
+  this.pages = pages;
+  this.beenRead = beenRead;
 }
 
 function showBooks() {
   myLibrary.forEach((book) => {
     listBooks.innerHTML += `
     <tr>
-      <td>${book.name}</td>
+      <td>${book.title}</td>
       <td>${book.author}</td>
+      <td>${book.pages}</td>
+      <td>${book.beenRead}</td>
       <td>${book.genre}</td>
     </tr>
       `;
@@ -24,13 +35,17 @@ function showBooks() {
 }
 
 function clearForm() {
-  name.value = '';
+  title.value = '';
   author.value = '';
-  genre.value = '';
+  pages.value = 0;
+  beenRead.value = 'Yes';
+  genre.value = 'Horror';
 }
 
 submitButton.onclick = function addBookToLibrary() {
-  myLibrary.push(new Book(name.value, author.value, genre.value));
+  myLibrary.push(new Book(title.value, author.value, pages.value, beenRead.value, genre.value));
   showBooks();
   clearForm();
 };
+
+initialize();
