@@ -22,17 +22,30 @@ function Book(title, author, pages, beenRead, genre) {
 }
 
 function showBooks() {
-  myLibrary.forEach((book) => {
+  listBooks.innerHTML = '';
+  myLibrary.forEach((book, index) => {
     listBooks.innerHTML += `
     <tr>
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.pages}</td>
-      <td>${book.beenRead}</td>
+      <td> <button onclick="updateReadStatus(${index})">${book.beenRead}</button></td>
       <td>${book.genre}</td>
+      <td><button onclick="deleteCurrent(${index})">delete</button></td>
     </tr>
       `;
   });
+}
+
+function deleteCurrent(index) {
+  myLibrary.splice(index, 1);
+  showBooks();
+}
+
+function updateReadStatus(index) {
+  if (myLibrary[index].beenRead === 'Yes') myLibrary[index].beenRead = 'No';
+  else myLibrary[index].beenRead = 'Yes';
+  showBooks();
 }
 
 function clearForm() {
