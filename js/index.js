@@ -9,7 +9,7 @@ const genre = document.getElementById('book-genre');
 const toggleForm = document.getElementById('toggle-form');
 const divForm = document.getElementById('div-form');
 const divBooks = document.getElementById('div-books');
-const classes = ['invisible col-12', 'visible col-12'];
+const classes = ['d-none col-6', 'col-6'];
 const toggleMessage = ['show form', 'show table'];
 let toggleVal = 1;
 
@@ -66,9 +66,4 @@ submitButton.onclick = function formEvent(event) {
   event.preventDefault();
 };
 
-function initialize() {
-  toggleVisibility();
-  addBookToLibrary();
-}
-
-initialize();
+toggleVisibility();

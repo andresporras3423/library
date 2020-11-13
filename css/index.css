@@ -1,0 +1,10 @@
+.toggle-container, .main-content-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-form > form > * {
+    width:100%;
+    float: left;
+}
