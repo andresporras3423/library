@@ -24,6 +24,16 @@ function Book(title, author, pages, beenRead, genre) {
 }
 
 function showBooks() {
+  function deleteCurrent(index) {
+    myLibrary.splice(index, 1);
+    showBooks();
+  }
+
+  function updateReadStatus(index) {
+    myLibrary[index].beenRead = (Number(myLibrary[index].beenRead) + 1) % 2;
+    showBooks();
+  }
+
   listBooks.innerHTML = '';
   myLibrary.forEach((book, index) => {
     listBooks.innerHTML += `
@@ -31,22 +41,16 @@ function showBooks() {
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.pages}</td>
-      <td> <button onclick="updateReadStatus(${index})">${readValue[book.beenRead]}</button></td>
+      <td> <button id="button-read-status-${index}">${readValue[book.beenRead]}</button></td>
       <td>${book.genre}</td>
-      <td><button onclick="deleteCurrent(${index})">delete</button></td>
+      <td><button id="button-delete-${index}">delete</button></td>
     </tr>
       `;
+    const buttonDeleteStatus = document.getElementById(`button-delete-${index}`);
+    const buttonReadStatus = document.getElementById(`button-read-status-${index}`);
+    buttonDeleteStatus.onclick = function deleteCurrentContainer() { deleteCurrent(index); };
+    buttonReadStatus.onclick = function updateReadStatusContainer() { updateReadStatus(index); };
   });
-}
-
-function deleteCurrent(index) {
-  myLibrary.splice(index, 1);
-  showBooks();
-}
-
-function updateReadStatus(index) {
-  myLibrary[index].beenRead = (Number(myLibrary[index].beenRead) + 1) % 2;
-  showBooks();
 }
 
 function clearForm() {
