@@ -14,19 +14,22 @@
     <div class="col-12 toggle-container">
         <button id="toggle-form">text</button>
     </div>
+    <div id="div-errors" class="col-12">
+
+    </div>
     <main class="col-12 main-content-container">
         <div id="div-form">
-            <form>
+            <form class="col-8">
                 <label class="col-12">Author:</label>
                 <input class="col-12" type="text" id="book-author">
                 <label class="col-12">Title:</label>
                 <input class="col-12" type="text" id="book-title">
                 <label class="col-12">Number of pages:</label>
-                <input class="col-12" type="number" id="book-pages">
+                <input class="col-12" type="number" min="1" value="1" id="book-pages">
                 <label class="col-12" for="been-read">Has been read?:</label>
                 <select class="col-12" name="been-read" id="book-been-read">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                    <option value=1>Yes</option>
+                    <option value=0>No</option>
                 </select>
                 <label class="col-12" for="cars">Genre:</label>
                 <select class="col-12" name="genre" id="book-genre">
@@ -47,6 +50,7 @@
                             <th>Total Pages</th>
                             <th>Has been read?</th>
                             <th>Genre</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="list-books">

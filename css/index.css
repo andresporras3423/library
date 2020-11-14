@@ -1,4 +1,4 @@
-.toggle-container, .main-content-container{
+.toggle-container, .main-content-container, .main-content-container>div{
     display: flex;
     justify-content: center;
     align-items: center;
