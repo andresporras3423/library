@@ -78,6 +78,7 @@ function showWarningMessages() {
     listErrors.forEach((error) => { divErrors.innerHTML += `<p>${error}</p>`; });
     return true;
   }
+  divErrors.innerHTML += '<p>book successfully saved!</p>';
   return false;
 }
 
