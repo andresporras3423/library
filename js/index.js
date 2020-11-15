@@ -12,6 +12,7 @@ const divBooks = document.getElementById('div-books');
 const divErrors = document.getElementById('div-errors');
 const classes = ['d-none col-6', 'col-6'];
 const toggleMessage = ['show form', 'show table'];
+const beenReadColor = ['btn btn-secondary', 'btn btn-success'];
 const readValue = ['No', 'Yes'];
 let toggleVal = 1;
 
@@ -42,9 +43,9 @@ function showBooks() {
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.pages}</td>
-      <td> <button id="button-read-status-${index}" class="button-read-status">${readValue[book.beenRead]}</button></td>
+      <td> <button class="button-read-status ${beenReadColor[book.beenRead]}">${readValue[book.beenRead]}</button></td>
       <td>${book.genre}</td>
-      <td><button id="button-delete-${index}" class="button-delete">delete</button></td>
+      <td><button class="button-delete btn btn-danger">delete</button></td>
     </tr>
       `;
   }
@@ -82,10 +83,10 @@ function showWarningMessages() {
   else if (!Number.isInteger(Number(pages.value))) listErrors.push('Number of pages must be an integer');
   else if (pages.value < 1) listErrors.push("Number of pages can't be less than 1");
   if (listErrors.length > 0) {
-    listErrors.forEach((error) => { divErrors.innerHTML += `<p>${error}</p>`; });
+    listErrors.forEach((error) => { divErrors.innerHTML += `<p class="alert alert-warning">${error}</p>`; });
     return true;
   }
-  divErrors.innerHTML += '<p>book successfully saved!</p>';
+  divErrors.innerHTML += '<p class="alert alert-success">book successfully saved!</p>';
   return false;
 }
 
