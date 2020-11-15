@@ -1,4 +1,4 @@
-# Library! project
+# Library Project
 
 First JavaScript Microverse Project By Oscar Russi
 
