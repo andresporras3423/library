@@ -21,7 +21,7 @@ First JavaScript Microverse Project By Oscar Russi
 
 # Live demo
 
-[Live Demo](https://englishproject000.000webhostapp.com/ep/index.html)
+[Live Demo](https://andresporras3423.github.io/library/index.html)
 
 # How to run this project
 
