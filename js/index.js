@@ -35,22 +35,25 @@ function showBooks() {
   }
 
   listBooks.innerHTML = '';
-  myLibrary.forEach((book, index) => {
+  for (let index = 0; index < myLibrary.length; index += 1) {
+    const book = myLibrary[index];
     listBooks.innerHTML += `
     <tr>
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.pages}</td>
-      <td> <button id="button-read-status-${index}">${readValue[book.beenRead]}</button></td>
+      <td> <button id="button-read-status-${index}" class="button-read-status">${readValue[book.beenRead]}</button></td>
       <td>${book.genre}</td>
-      <td><button id="button-delete-${index}">delete</button></td>
+      <td><button id="button-delete-${index}" class="button-delete">delete</button></td>
     </tr>
       `;
-    const buttonDeleteStatus = document.getElementById(`button-delete-${index}`);
-    const buttonReadStatus = document.getElementById(`button-read-status-${index}`);
-    buttonDeleteStatus.onclick = function deleteCurrentContainer() { deleteCurrent(index); };
-    buttonReadStatus.onclick = function updateReadStatusContainer() { updateReadStatus(index); };
-  });
+  }
+  const buttonsReadStatus = document.getElementsByClassName('button-read-status');
+  const buttonsDelete = document.getElementsByClassName('button-delete');
+  for (let j = 0; j < buttonsReadStatus.length; j += 1) {
+    buttonsReadStatus[j].onclick = function updateReadStatusContainer() { updateReadStatus(j); };
+    buttonsDelete[j].onclick = function deleteCurrentContainer() { deleteCurrent(j); };
+  }
 }
 
 function clearForm() {
@@ -103,4 +106,13 @@ submitButton.onclick = function formEvent(event) {
   event.preventDefault();
 };
 
+function addInitialBooks() {
+  myLibrary.push(new Book('The Lord of The Rings', 'J. R. R. Tolkien', 823, 1, 'Fantasy'));
+  myLibrary.push(new Book('Harry Potter', 'JK Rowling', 435, 0, 'Fantasy'));
+  myLibrary.push(new Book('1984', 'George Orwell', 377, 1, 'Drama'));
+  myLibrary.push(new Book('One Hundred Years of Solitude', 'Gabriel García Marquez', 421, 1, 'Drama'));
+  myLibrary.push(new Book('Dracula', 'Bram Stoker', 215, 0, 'Horror'));
+  showBooks();
+}
+addInitialBooks();
 toggleVisibility();
