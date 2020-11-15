@@ -1,15 +1,18 @@
-.toggle-container, .main-content-container, .main-content-container>div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.toggle-container,
+.main-content-container,
+.main-content-container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.toggle-container, .button-save{
-    margin-top: 25px;
-    margin-bottom: 25px;
+.toggle-container,
+.button-save {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
-.button-read-status{
-    width: 50px;
+.button-read-status {
+  width: 50px;
 }
