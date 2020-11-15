@@ -11,7 +11,7 @@ First JavaScript Microverse Project By Oscar Russi
 - The book attributes are: title, author, number of pages, has been read and genre.
 - It has a table with a list of books.
 - the table shows all the information of each book, also has a button to toggle the value of "has been read" and another button to delete the book.
-- A button in the top of the page to toggle between the table and the form.
+- A button at the top of the page to toggle between the table and the form.
 
 # Build with
 
