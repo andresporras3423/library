@@ -16,12 +16,14 @@ const beenReadColor = ['btn btn-secondary', 'btn btn-success'];
 const readValue = ['No', 'Yes'];
 let toggleVal = 1;
 
-function Book(title, author, pages, beenRead, genre) {
-  this.title = title;
-  this.author = author;
-  this.genre = genre;
-  this.pages = pages;
-  this.beenRead = beenRead;
+class Book {
+  constructor(title, author, pages, beenRead, genre){
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.pages = pages;
+    this.beenRead = beenRead;
+  }
 }
 
 function showBooks() {
