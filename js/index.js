@@ -17,11 +17,7 @@ const readValue = ['No', 'Yes'];
 let toggleVal = 1;
 
 function Book(title, author, pages, beenRead, genre) {
-  this.title = title;
-  this.author = author;
-  this.genre = genre;
-  this.pages = pages;
-  this.beenRead = beenRead;
+  return {title, author, pages, beenRead, genre};
 }
 
 function showBooks() {
@@ -98,7 +94,7 @@ toggleForm.onclick = function toggleEvent() {
 
 function addBookToLibrary() {
   if (!showWarningMessages()) {
-    myLibrary.push(new Book(title.value, author.value, pages.value, beenRead.value, genre.value));
+    myLibrary.push(Book(title.value, author.value, pages.value, beenRead.value, genre.value));
     showBooks();
     clearForm();
   }
